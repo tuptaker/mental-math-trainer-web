@@ -1,0 +1,24 @@
+<div style="width:261px;margin: 0 auto;">  
+  <br/>
+  <h2 style="text-align:center;">Register Below.</h2>
+  <br>
+  <p class="mmt-input-label">Username:</p>
+  <input  type="text" size="30" [(ngModel)]="username" pInputText>
+  <p class="mmt-input-label">Password:</p>
+  <input type="password" [(ngModel)]="desiredPassword" [feedback]=true [promptLabel]="firstPWPromptLabel" [weakLabel]="weakPWLabel" [mediumLabel]="mediumLabel" [strongLabel]="strongPWLabel" size="30" pPassword>
+  <p class="mmt-input-label">Confirm password:</p>
+  <input type="password" [(ngModel)]="desiredPasswordConfirmation" [feedback]=true [promptLabel]="firstPWPromptLabel" [weakLabel]="weakPWLabel" [mediumLabel]="mediumLabel" [strongLabel]="strongPWLabel" size="30" pPassword>
+  <p class="mmt-input-label">Email</p>
+  <input type="text" size="30" [(ngModel)]="emailAddress" pInputText>
+  <br/>
+  <br/>
+  <button style="display:inline;background-color:black;border-color:black;color:white;" pButton type="button" (click)="createAccount()" label="Register" class="mmt-input"></button>
+  <div style="display:inline-block;vertical-align:middle;padding-left:15px;">
+    Already registered?<br/>
+    <span style="color:blue;cursor:pointer;" (click)="showLoginView()">Log In.</span>
+  </div>
+  <div *ngIf="accountRegistrationFailed">
+    <span style="color: red;">Unable to create account with credentials provided. Please check your corp ID, email, and password, and try again.</span>
+  </div>
+
+</div>

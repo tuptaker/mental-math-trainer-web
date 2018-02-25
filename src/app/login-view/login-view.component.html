@@ -1,0 +1,26 @@
+<div style="width:261px;margin: 0 auto;">  
+    <br/>
+    <h2 style="text-align:center;">Log In Below.</h2>
+    <br>
+    <p class="mmt-input-label">Username:</p>
+    <input type="text" size="30" [(ngModel)]="username" pInputText>
+    <p class="mmt-input-label">Email</p>
+    <input type="text" size="30" [(ngModel)]="emailAddress" pInputText>
+    <p class="mmt-input-label">Password:</p>
+    <input type="password" [(ngModel)]="password" size="30" pPassword>
+    <br/>
+    <br/>
+    <br/>
+    <button style="display:inline;" pButton type="button" (click)="logIn()" label="Log In" class="mmt-input"></button>
+    <div style="display:inline-block;vertical-align:middle;padding-left:15px;">
+      Don't have an account?
+      <br/>
+      <span style="color:blue;cursor:pointer;" (click)="showAccountRegistrationView()">Create an account.</span>
+    </div>
+    <br/>
+    <br/>
+    <div *ngIf="loginFailed">
+      <span style="color: red;">Unable to login with credentials provided. Please check your corp ID, email, and password, and try again.</span>
+    </div>
+  
+  </div>

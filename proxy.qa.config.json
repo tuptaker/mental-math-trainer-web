@@ -1,0 +1,19 @@
+{
+    "/api/*": {
+        "target":"http://svc.mmtrainer.com",
+        "secure":false,
+        "changeOrigin":true,
+        "logLevel":"debug"
+    },
+    "/media/*": {
+        "target":"http://svc.mmtrainer.com",
+        "secure":false,
+        "changeOrigin":true,
+        "logLevel":"debug"
+    },
+    "/rest-auth/*": {
+        "target":"http://svc.mmtrainer.com",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
