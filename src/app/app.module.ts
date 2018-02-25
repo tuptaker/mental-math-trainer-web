@@ -21,6 +21,7 @@ import { AuthenticationService } from './authentication.service';
 
 const appRoutes: Routes = [
   { path: 'main-view', component: MainView },
+  { path: 'verify-email/:id', component: ConfirmRegistrationView },
   { path: '', redirectTo: '/main-view', pathMatch: 'full'}
   /*,
   { path: '' }*/

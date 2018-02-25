@@ -34,6 +34,11 @@ export class AuthenticationService {
     return this._http.post(environment.apiHost + "/rest-auth/registration", {username: username, password1:password, password2: passwordConfirm, email:email});
   }
 
+  verifyAccount(verificationID: string) {
+    return this._http.post(environment.apiHost + "/rest-auth/registration/verify-email/",
+    { key:verificationID });
+  }
+
   sessionIsActive():Observable<any> {
     return;
   }
