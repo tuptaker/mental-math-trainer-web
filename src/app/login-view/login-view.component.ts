@@ -33,13 +33,19 @@ export class LoginView implements OnInit {
         var currentUser = new MMTUser(this.username, this.emailAddress, data.key);
         localStorage.setItem('currentMMTUser', JSON.stringify(currentUser));
         this.presentingView.isLoggedIn = true;
+        this.presentingView.viewingLogin = false;
+        this.presentingView.viewingRegistration = false;
+        this.presentingView.awaitingConfirmation = true;
       },
       err => this.loginFailed = true
     );
   }
 
   showAccountRegistrationView() {
-    this.presentingView.isCreatingAccount = true;
+    this.presentingView.isLoggedIn = false;
+    this.presentingView.viewingLogin = false;
+    this.presentingView.viewingRegistration = true;
+    this.presentingView.awaitingConfirmation = false;  
   }
 
 }

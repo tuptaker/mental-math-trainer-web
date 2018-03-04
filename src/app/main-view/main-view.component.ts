@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, AfterViewChecked, Input, ViewChild, C
 import { AuthenticationService } from '../authentication.service';
 import { LoginView } from '../login-view/login-view.component';
 import { RegistrationView } from '../registration-view/registration-view.component';
+import { AwaitingConfirmationView } from '../awaiting-confirmation-view/awaiting-confirmation-view.component';
 import { MMTUser } from '../m-m-t-user';
 
 @Component({
@@ -23,16 +24,27 @@ export class MainView implements OnInit {
     }
   }
 
+  @ViewChild('awaitingConfirmationView') set awaitingConfirmationView(awaitingConfirmationVC: AwaitingConfirmationView) {
+    if (awaitingConfirmationVC != null) {
+      awaitingConfirmationVC.presentingView = this;
+    }
+  }
+
   isCreatingAccount: boolean;
+  viewingLogin: boolean;
   isLoggedIn: boolean;
+  viewingRegistration: boolean;
+  awaitingConfirmation: boolean;
   isLoadingData: boolean;
   didAttemptToFetchInitialContent: boolean;
 
   constructor(private authenticationService: AuthenticationService) {
     //this.isLoadingData = true;
     this.isLoadingData = false;
+    this.viewingLogin = true;
+    this.viewingRegistration = false;
     this.isLoggedIn = false;
-    this.isCreatingAccount = false;
+    this.awaitingConfirmation = false;
     this.didAttemptToFetchInitialContent = false;
    }
 
@@ -76,6 +88,9 @@ export class MainView implements OnInit {
           console.log(detailMsg);
           localStorage.removeItem('currentMMTUser');
           this.isLoggedIn = false;
+          this.viewingLogin = true;
+          this.viewingRegistration = false;
+          this.awaitingConfirmation = false;
           this.didAttemptToFetchInitialContent = false;
         }
         break;

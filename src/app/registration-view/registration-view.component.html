@@ -20,5 +20,8 @@
   <div *ngIf="accountRegistrationFailed">
     <span style="color: red;">Unable to create account with credentials provided. Please check your corp ID, email, and password, and try again.</span>
   </div>
+  <div *ngIf="verificationEmailSent">
+      <span style="color: blue;">Your account has been created! Please check your email and click the link provided to verify your account. You will not be able to log in until you verify your account.</span>
+    </div>
 
 </div>

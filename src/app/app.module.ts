@@ -18,6 +18,9 @@ import { RegistrationView } from './registration-view/registration-view.componen
 import { ConfirmRegistrationView } from './confirm-registration-view/confirm-registration-view.component';
 import { MainView } from './main-view/main-view.component';
 import { AuthenticationService } from './authentication.service';
+import { GenericErrorViewComponent } from './generic-error-view/generic-error-view.component';
+import { AccountCreatedViewComponent } from './account-created-view/account-created-view.component';
+import { AwaitingConfirmationView } from './awaiting-confirmation-view/awaiting-confirmation-view.component';
 
 const appRoutes: Routes = [
   { path: 'main-view', component: MainView },
@@ -33,7 +36,10 @@ const appRoutes: Routes = [
     LoginView,
     RegistrationView,
     ConfirmRegistrationView,
-    MainView
+    MainView,
+    GenericErrorViewComponent,
+    AccountCreatedViewComponent,
+    AwaitingConfirmationView
   ],
   imports: [
     BrowserModule,

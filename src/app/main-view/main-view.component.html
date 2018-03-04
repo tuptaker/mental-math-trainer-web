@@ -23,12 +23,15 @@
   <!-- login and registration views -->
   <ng-template #notLoggedIn>
     <div style="width:100%;">
-      <div *ngIf="!isCreatingAccount">
+      <div *ngIf="viewingLogin">
         <login-view #loginView></login-view>
       </div>
-      <div *ngIf="isCreatingAccount">
+      <div *ngIf="viewingRegistration">
         <registration-view #registrationView></registration-view>
       </div>
+      <div *ngIf="awaitingConfirmation">
+          <awaiting-confirmation-view #awaitingConfirmationView></awaiting-confirmation-view>
+        </div>
     </div>
   </ng-template>
 </div>

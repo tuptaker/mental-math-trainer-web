@@ -10,12 +10,30 @@
 <br/>
 
 <div class="ui-g" style="height:100%;">
+
   <div style="width:261px;margin: 0 auto;">
-    <br/>
-    <h2 style="text-align:center;">Almost there! Just tap below to Verify.</h2>
-    <br/>
-    <br/>
-    <br/>
-    <button style="display:inline;" pButton type="button" (click)="verify()" label="Verify" class="mmt-input"></button>
+
+    <div *ngIf="!isVerified; else verified">
+      <br/>
+      <h2 style="text-align:center;">Almost there! Just tap below to Verify.</h2>
+      <br/>
+      <br/>
+      <br/>
+      <div style="width:261px;text-align:center;;">
+        <button pButton type="button" (click)="verify()" label="Verify" class="mmt-input"></button>
+      </div>
+    </div>
+    <ng-template #verified>
+        <br/>
+        <h2 style="text-align:center;">Account verified! Proceed to Log In Screen.</h2>
+        <br/>
+        <br/>
+        <br/>
+        <div style="width:261px;text-align:center;;">
+          <button pButton type="button" (click)="goToLogin()" label="Login" class="mmt-input"></button>
+        </div>
+      </ng-template>
+
+
   </div>
 </div>
